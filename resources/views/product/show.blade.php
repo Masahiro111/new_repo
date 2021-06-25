@@ -49,9 +49,17 @@
                         {{-- <span class="text-2xl leading-none align-baseline">.99</span> --}}
                     </div>
                     <div class="inline-block align-bottom">
-                        <button
-                            class="bg-yellow-300 opacity-75 hover:opacity-100 text-yellow-900 hover:text-gray-900 rounded-full px-10 py-2 font-semibold"><i
-                                class="mdi mdi-cart -ml-2 mr-2"></i> ADD CART</button>
+                        <form method="POST" action="{{ route('line_item.create') }}">
+                            @csrf
+                            <input type="hidden" name="id" value="{{ $product->id }}" />
+                            <div class="product__quantity">
+                                <input type="number" name="quantity" min="1" value="1" require />
+                            </div>
+                            <button
+                                class="bg-yellow-300 opacity-75 hover:opacity-100 text-yellow-900 hover:text-gray-900 rounded-full px-10 py-2 font-semibold"><i
+                                    class="mdi mdi-cart -ml-2 mr-2"></i> ADD CART</button>
+
+                        </form>
                     </div>
                 </div>
             </div>
