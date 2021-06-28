@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\LineItemController;
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 
@@ -34,6 +35,15 @@ Route::get('/cart', [CartController::class, 'index'])
 
 Route::get('/dashboard', function () {
     return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+})
+    ->middleware(['auth'])
+    ->name('dashboard');
+
+Route::get('/qiita', function () {
+    return view('qiita.top');
+});
+
+Route::get('/qiita/drafts/new', [PostController::class, 'index'])
+    ->name('drafts.new');
 
 require __DIR__ . '/auth.php';
