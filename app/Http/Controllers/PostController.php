@@ -13,6 +13,12 @@ class PostController extends Controller
         return view('qiita.drafts.new');
     }
 
+    public function showTopPage()
+    {
+        $articles = Post::orderBy('created_at', 'asc')->get();
+        return view('qiita.top', compact('articles'));
+    }
+
     public function postArticle(Request $request)
     {
         // validation
@@ -33,8 +39,14 @@ class PostController extends Controller
             'tag1' => $tag1,
             'tag2' => $tag2,
             'tag3' => $tag3,
-            'body' => $request->article,
+            'article' => $request->article,
         ]);
-        return redirect('/qiita');
+        return redirect('/drafts/' . $article->id);
+    }
+
+    public function showArticle($id)
+    {
+        $article = Post::where('id', $id)->first();
+        return view('qiita.drafts.item', compact('article'));
     }
 }

@@ -13,7 +13,7 @@
     @endif
     <input type="text" class="form-control m-1" placeholder="プログラミング技術に関するタグをスペース区切りで3つまで入力" name="tags">
 
-    @if($errors->first('body'))
+    @if($errors->first('article'))
     <div class="validation">{{ $errors->first('article') }}</div>
     @endif
     <div class="row">

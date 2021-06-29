@@ -19,7 +19,7 @@ class CreatePostsTable extends Migration
             $table->string('tag1');
             $table->string('tag2')->nullable();
             $table->string('tag3')->nullable();
-            $table->text('body');
+            $table->text('article');
             $table->timestamps();
         });
     }
