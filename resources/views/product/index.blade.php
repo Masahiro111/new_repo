@@ -7,6 +7,7 @@ Top
 @section('content')
 
 @include('layouts.products.navi')
+
 <section class="w-full mx-auto bg-nordic-gray-light flex pt-12 md:pt-0 md:items-center bg-cover bg-right"
     style="max-width:1600px; height: 32rem; background-image: url('{{ asset('images/top.bmp') }}');">
     <div class="container mx-auto">
@@ -55,7 +56,7 @@ Top
 
         @foreach ($products as $product)
         <div class="w-full md:w-1/3 xl:w-1/4 p-6 flex flex-col">
-            <a href="{{ route('product.show', $product->id) }}">
+            <a href="#">
                 <img class="hover:grow hover:shadow-lg" src="{{ asset($product->image) }}">
                 <div class="pt-3 flex items-center justify-between">
                     <p class="">{{ $product->name }}</p>
@@ -73,6 +74,7 @@ Top
     </div>
 
 </section>
+
 
 
 @include('layouts.products.about')
