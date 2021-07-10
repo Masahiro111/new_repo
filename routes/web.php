@@ -39,17 +39,14 @@ Route::get('/dashboard', function () {
     ->middleware(['auth'])
     ->name('dashboard');
 
-Route::get('/qiita', [PostController::class, 'showTopPage'])
-    ->name('item');
-// return view('qiita.top');
+Route::get('/qiita', function () {
+    return view('qiita.top');
+});
 
 Route::get('/qiita/drafts/new', [PostController::class, 'index'])
     ->name('drafts.new');
 
 Route::post('drafts/new', [PostController::class, 'postArticle'])
     ->name('drafts.new.posts');
-
-Route::get('/drafts/{id}', [PostController::class, 'showArticle'])
-    ->name('item');
 
 require __DIR__ . '/auth.php';
