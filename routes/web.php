@@ -46,7 +46,4 @@ Route::get('/qiita', function () {
 Route::get('/qiita/drafts/new', [PostController::class, 'index'])
     ->name('drafts.new');
 
-Route::post('drafts/new', [PostController::class, 'postArticle'])
-    ->name('drafts.new.posts');
-
 require __DIR__ . '/auth.php';
